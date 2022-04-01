@@ -1,0 +1,76 @@
+.login__container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Inter";
+}
+
+.login__img {
+  width: 80px;
+}
+
+.title__span {
+  margin: 1rem;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.subtitle__span {
+  font-size: 1rem;
+  color: #222222;
+}
+
+.login__form {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}
+
+.form__label {
+  font-family: "Inter";
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.form__input {
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e1e1e1;
+  font-size: 1.1rem;
+  color: #222222;
+  margin-bottom: 1rem;
+  margin-top: 0.4rem;
+}
+
+.form__submit {
+  padding: 1rem;
+  width: 400px;
+  font-size: 1.1rem;
+  color: #39f;
+  background-color: #fff;
+  border: 1px solid #39f;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 0.5rem 0;
+}
+.form__submit:hover {
+  background-color: #3399ff10;
+}
+.form__submit:active {
+  transform: scale(0.95);
+}
+
+#forgot__link {
+  text-decoration: none;
+}
+
+.forgot__span {
+  color: #a1a1a1;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=login.css.map */

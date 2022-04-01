@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="/assets/css/global.css" />
+    <link rel="stylesheet" href="/assets/css/signup.css" />
+    <link rel="icon" href="/assets/images/png/favicon.png" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <img src="/assets/images/svg/download.svg" alt="" />
+      <h2>Sign Up</h2>
+      <form action="/dashboard?psort=progress" id="create__user__form">
+        <div class="input-box">
+          <input
+            type="text"
+            name="firstName"
+            placeholder="Enter First Name"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Enter Last Name"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="text"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="tel"
+            max="10"
+            name="phoneNum"
+            min="10"
+            placeholder="Contact Number"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="text"
+            name="district"
+            placeholder="Enter District"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <input type="text" name="state" placeholder="Enter State" required />
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            name="password"
+            id="ppass"
+            placeholder="Create password"
+            required
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            placeholder="Confirm password"
+            id="cpass"
+            required
+          />
+        </div>
+        <div class="input-box button">
+          <input type="Submit" value="Sign Up" />
+        </div>
+      </form>
+      <a href="/login">Already A User? Sign In</a>
+    </div>
+    <script src="/assets/scripts/signup.js"></script>
+  </body>
+</html>

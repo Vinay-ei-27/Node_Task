@@ -1,0 +1,221 @@
+.dashboard__container {
+    background-color: #ecf4fa;
+    min-height: 100vh;
+    max-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    font-family: 'Inter';
+}
+
+.dashboard__content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.user__info {
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    align-items: center;
+
+    .user__avatar {
+        height: 50px;
+        width: 50px;
+        background-image: url("https://www.thedesignwork.com/wp-content/uploads/2011/10/Random-Pictures-of-Conceptual-and-Creative-Ideas-02.jpg");
+        background-size: cover;
+        border-radius: 50%;
+        margin: 0 0.8rem;
+    }
+}
+
+.breadcrumb {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #e1e1e1;
+    box-sizing: border-box;
+
+    span {
+        cursor: pointer;
+
+        &:nth-child(2n) {
+            margin: 0 0.2rem;
+        }
+
+        &:nth-child(2n + 1) {
+            color: #39f;
+        }
+
+        &:nth-child(1) {
+            color: #000
+        }
+    }
+
+    .trigger__modal_project {
+        background-color: #39f;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+}
+
+.projects__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem 1rem;
+    box-sizing: border-box;
+    margin-top: 3rem;
+
+    .title__sorts {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .projects__sorts {
+            #psort {
+                background-color: #3399ff30;
+                border-radius: 50px;
+                font-size: 14px;
+                font-weight: 100;
+                padding: 0.6rem;
+                border: 1px solid #39f;
+                cursor: pointer;
+                outline: 0;
+            }
+        }
+    }
+}
+
+.users__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem 1rem;
+    box-sizing: border-box;
+    margin-top: 3rem;
+
+    .title__action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .trigger__modal_user {
+            background-color: #3399ff40;
+            color: #39f;
+            border: 1px solid #39f;
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+}
+
+.user__create__modal,
+.project__create__modal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal__box,
+.modalp__box {
+    padding: 2rem 4rem;
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter';
+    max-width: 770px;
+
+    h3 {
+        margin-top: 0;
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .form_group {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            margin: 1rem;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        input,
+        select {
+            width: 350px;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e1e1e1;
+            font-size: 1rem;
+            outline: 0;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .submit__contain {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            padding: 1rem;
+            box-sizing: border-box;
+            margin-top: 1rem;
+        }
+
+        button {
+            background-color: #39f;
+            padding: 0.8rem 4rem;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+        }
+    }
+}
+
+.visible {
+    display: flex !important;
+}

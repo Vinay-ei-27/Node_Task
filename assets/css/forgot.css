@@ -1,0 +1,53 @@
+.forgot__continer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  font-family: "Inter";
+}
+.forgot__continer img {
+  width: 200px;
+  height: auto;
+}
+
+.forgot__form form {
+  display: flex;
+  flex-direction: column;
+}
+.forgot__form form .forgot__form__input {
+  display: flex;
+  flex-direction: column;
+}
+.forgot__form form .forgot__form__input label {
+  font-weight: 100;
+  margin-bottom: 0.4rem;
+}
+.forgot__form form .forgot__form__input input {
+  padding: 0.7rem;
+  border: 1px solid #e1e1e1;
+  outline: 0;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-radius: 6px;
+}
+.forgot__form form .forgot__form__button button {
+  background-color: #fff;
+  color: #39f;
+  border: 1px solid #39f;
+  font-size: 1.2rem;
+  padding: 0.8rem 0;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.forgot__form form .forgot__form__button button:hover {
+  background-color: #39f;
+  color: #fff;
+}
+.forgot__form form .forgot__form__button button:active {
+  transform: scale(0.95);
+}
+
+/*# sourceMappingURL=forgot.css.map */

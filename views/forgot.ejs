@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="icon" href="/assets/images/png/favicon.png">
+    <link rel="stylesheet" href="/assets/css/forgot.css">
+</head>
+
+<body>
+    <div class="forgot__continer">
+        <img src="/assets/images/png/headerlogo.png" alt="">
+        <div class="forgot__form">
+            <div class="forgot__form__header">
+                <h1>Forgot Password</h1>
+                <p>Enter your email address and username reset your password.</p>
+            </div>
+            <form action="/forgot" method="POST">
+                <div class="forgot__form__input">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="forgot__form__input">
+                    <label for="firstName">Security Question</label>
+                    <input type="text" name="firstName" id="firstName" placeholder="Enter Your First Name" required>
+                </div>
+                <div class="forgot__form__input">
+                    <label for="password">Reset Password</label>
+                    <input type="password" name="password" id="password" placeholder="Reset Password" required>
+                </div>
+                <div class="forgot__form__button">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="icon" href="/assets/images/png/favicon.png">
+</head>
+
+<body>
+    <div class="dashboard__container">
+        <%-include("./components/sidenav.ejs") %>
+            <div class="dashboard__content">
+                <div class="user__info">
+                    <img src="/assets/images/svg/notification.svg" alt="">
+                    <div class="user__avatar"></div>
+                    <div class="user__name">
+                        <span>
+                            Vinay Maurya
+                        </span>
+                    </div>
+                </div>
+                <div class="breadcrumb">
+                    <div class="crumb__route">
+                        <span>Projects</span>
+                        <span>></span>
+                        <span>My Projects</span>
+                    </div>
+                    <button class="trigger__modal_project">Create New Project</button>
+                </div>
+                <div class="projects__container">
+                    <div class="title__sorts">
+                        <span>Projects</span>
+                        <form class="projects__sorts" action="/dashboard" method="GET">
+                            <select name="psort" id="psort" onchange="sortdata()">
+                                <option value="progress">Sort by: In Progress</option>
+                                <option value="num_projects">Sort by: No. of Projects</option>
+                                <option value="num_schools">Sort by: No. of Schools</option>
+                                <option value="date">Sort by: Creation Date</option>
+                            </select>
+                        </form>
+                    </div>
+
+                <!-- table -->
+                <div class="tableui">
+                    <% for (let i = 0; i < pkeybindings.length; i++) { %>
+                        <div class="table__column">
+                            <div class="table__column__heading"><%= pkeybindings[i].value %></div>
+                            <div class="table__column__data">
+                                <% for(let j=0; j<projectdata.length; j++) { %>
+                                    <% if(pkeybindings[i].type == "createdAt") { %>
+                                        <div><%= new Intl.DateTimeFormat().format(new Date(projectdata[j][pkeybindings[i].type])) %></div>
+                                    <% } else if(pkeybindings[i].type == "view") { %>
+                                        <div>
+                                            <button class="view__button">View</button>
+                                        </div>
+                                <% } else { %>
+                                    <div><%= projectdata[j][pkeybindings[i].type] %></div>
+                            <% }} %> %>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+                <!-- table -->
+                </div>
+
+                <div class="users__container">
+                    <div class="title__action">
+                        <span>Users</span>
+                        <button class="trigger__modal_user">Create New User</button>
+                    </div>
+
+                <!-- table -->
+                <div class="tableui">
+                    <% for (let i = 0; i < keybinding.length; i++) { %>
+                        <div class="table__column">
+                            <div class="table__column__heading"><%= keybinding[i].value %></div>
+                            <div class="table__column__data">
+                                <% for(let j=0; j<userdata.length; j++) { %>
+                                    <% if(keybinding[i].type == "createdAt") { %>
+                                        <div><%= new Intl.DateTimeFormat().format(new Date(userdata[j][keybinding[i].type])) %></div>
+                                    <% } else if(keybinding[i].type == "accessLevel") { %>
+                                        <div>
+                                            <button class="view__button">View</button>
+                                        </div>
+                                <% } else { %>
+                                    <div><%= userdata[j][keybinding[i].type] %></div>
+                            <% }} %> %>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+                <!-- table -->
+                </div>
+            </div>
+    </div>
+    <!-- User Modal -->
+    <div class="user__create__modal">
+        <div class="modal__box">
+            <h3>Create User</h3>
+            <form id="create_user_form">
+                <div class="form_group">
+                    <label for="f_name">First Name</label>
+                    <input type="text" name="firstName" id="f_name" placeholder="Enter First Name" required>
+                </div>
+               <div class="form_group">
+                    <label for="l_name">Last Name</label>
+                    <input type="text" id="l_name" name="lastName" placeholder="Enter Last Name" required>
+               </div>
+                <div class="form_group">
+                    <label for="usermail">Email</label>
+                    <input type="email" id="usermail" name="email" placeholder="Enter Email Address" required>
+                </div>
+                <div class="form_group">
+                    <label for="phoneNum">Contact</label>
+                    <input type="tel" max="10" min="10" id="phoneNum" name="phoneNum" placeholder="Enter Contact Number" required>
+                </div>
+                <div class="form_group">
+                    <label for="designation">Designation</label>
+                    <input type="text" id="designation" name="designation" placeholder="Enter Designation" required>
+                </div>
+                <div class="form_group">
+                    <label for="acc_level">Access Level</label>
+                    <select name="accessLevel" id="acc_level" required>
+                        <option value="0" disabled>select access level</option>
+                        <option value="admin">Admin</option>
+                        <option value="management">Management</option>
+                        <option value="user">User</option>
+                    </select>
+                </div>
+                <div class="form_group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="Enter State" required>
+                </div>
+                <div class="form_group">
+                    <label for="district">District</label>
+                    <input type="text" id="district" name="district" placeholder="Enter District" required>
+                </div>
+                <div class="form_group">
+                    <label for="pass">Password</label>
+                    <input type="text" id="pass" name="password" placeholder="Enter User Password" required>
+                </div>
+                <div class="submit__contain">
+                    <button type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Project Modal -->
+    <div class="project__create__modal">
+        <div class="modalp__box">
+            <h3>Create New Project</h3>
+            <form id="create_project_form">
+                <div class="form_group">
+                    <label for="p_name">Project Name</label>
+                    <input type="text" name="projectName" id="p_name" placeholder="Enter Project Name" required>
+                </div>
+                <div class="form_group">
+                    <label for="n_projects">No. of Projects</label>
+                    <input type="number" name="numProjects" id="n_projects" placeholder="Enter Number of Projects" required>
+                </div>
+                <div class="form_group">
+                    <label for="n_schools">No. of Schools</label>
+                    <input type="number" name="numSchools" id="p_name" placeholder="Enter Number of Schools" required>
+                </div>
+                <div class="form_group">
+                    <label for="status">Status</label>
+                    <select name="status" id="status" required>
+                        <option value="0" disabled>select status level</option>
+                        <option value="in Progress">in Progress</option>
+                        <option value="Complete">Complete</option>
+                    </select>
+                </div>
+                <div class="submit__contain">
+                    <button type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/assets/scripts/dashboard.js"></script>
+</body>
+
+</html>
